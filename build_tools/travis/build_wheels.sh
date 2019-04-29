@@ -48,10 +48,6 @@ if [ "${TRAVIS_OS_NAME}" == "linux" ]; then
             echo "Unrecognized UCS_SETTING: ${UCS_SETTING}" 
         fi
     done
-elif [ "${TRAVIS_OS_NAME}" == "osx" ]; then
-    # this should be all that's required, right? We already removed the .egg-info
-    # directory so no locally cached SOURCES.txt with absolute paths will blow things up
-    python setup.py bdist_wheel
 else
     echo "Cannot build on ${TRAVIS_OS_NAME}."
 fi
