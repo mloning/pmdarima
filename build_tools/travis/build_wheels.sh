@@ -1,7 +1,10 @@
 #!/bin/bash
 
 # make sure we have README requirements in case we deploy
-pip install "setuptools>=38.6.0" "twine>=1.13.0" readme_renderer[md] wheel
+pip install --upgrade setuptools
+pip install --upgrade twine
+pip install --upgrade readme_renderer[md]
+pip install --upgrade wheel
 
 set -e -x
 
