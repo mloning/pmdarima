@@ -75,13 +75,7 @@ after_success:
   - source build_tools/travis/after_success.sh  # || echo "shell_session_update failed"
   # Build the wheels every time so we can debug
   - bash build_tools/travis/build_wheels.sh
-  - bash |
-    if python -c "from twine.commands.check import check; check(['dist/*'])" | grep  "warning"; then
-      echo "README will not render properly on PyPI"
-      exit 1
-    else
-      echo "README rendered appropriately"
-    fi
+  - bash build_tools/travis/verify_readme.sh
 
 before_deploy:
   - bash build_tools/travis/after_wheel_build.sh
